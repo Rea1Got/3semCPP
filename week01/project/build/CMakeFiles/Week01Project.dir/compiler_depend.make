@@ -191,6 +191,7 @@ CMakeFiles/Week01Project.dir/main.cpp.o: /home/ril1/Study/3semCPP/week01/project
 
 CMakeFiles/Week01Project.dir/src/ans_handler.cpp.o: /home/ril1/Study/3semCPP/week01/project/src/ans_handler.cpp \
   /home/ril1/Study/3semCPP/week01/project/include/ans_handler.hpp \
+  /home/ril1/Study/3semCPP/week01/project/include/ans_handler.hpp \
   /home/ril1/Study/3semCPP/week01/project/include/my_math.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
@@ -379,6 +380,7 @@ CMakeFiles/Week01Project.dir/src/ans_handler.cpp.o: /home/ril1/Study/3semCPP/wee
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h
 
 CMakeFiles/Week01Project.dir/src/my_math.cpp.o: /home/ril1/Study/3semCPP/week01/project/src/my_math.cpp \
+  /home/ril1/Study/3semCPP/week01/project/include/ans_handler.hpp \
   /home/ril1/Study/3semCPP/week01/project/include/my_math.hpp \
   /usr/include/alloca.h \
   /usr/include/c++/13/bit \

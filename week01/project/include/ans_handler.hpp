@@ -6,6 +6,6 @@ struct AnswerHandler {
   double point_result;
   double epsilone = 10E-10;
 
-  double my_trig(unsigned int);
+  AnswerHandler my_trig(unsigned int);
 };
 #endif

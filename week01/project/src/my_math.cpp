@@ -2,7 +2,7 @@
 #include <cmath>
 const double pi = 3.14159265358979323846;
 
-double my_sin(double point, double epsilone) {
+AnswerHandler my_sin(double point, double epsilone) {
   int sign = (point < 0) ? -1 : 1;
   // [0, 2*pi]
   point = fmod(std::fabs(point), 2 * pi);
@@ -18,10 +18,15 @@ double my_sin(double point, double epsilone) {
   double t = point, s = point;
   for (int n = 3; std::fabs(t) > epsilone; n += 2)
     s += t = -t * point * point / n / (n - 1);
-  return s * sign;
+
+  AnswerHandler result;
+  result.point = point;
+  result.epsilone = epsilone;
+  result.point_result = s * sign;
+  return result;
 }
 
-double my_cos(double point, double epsilone) {
+AnswerHandler my_cos(double point, double epsilone) {
   int sign = 1;
   point = std::fabs(point);
 
@@ -45,38 +50,60 @@ double my_cos(double point, double epsilone) {
     t = -t * point * point / (n * (n - 1));
     s += t;
   }
-
-  return sign * s;
+  AnswerHandler result;
+  result.point = point;
+  result.epsilone = epsilone;
+  result.point_result = s * sign;
+  return result;
 }
 
-double my_tan(double point, double epsilone) {
-  double sin_val = my_sin(point, epsilone);
-  double cos_val = my_cos(point, epsilone);
+AnswerHandler my_tan(double point, double epsilone) {
+  double sin_val = my_sin(point, epsilone).point_result;
+  double cos_val = my_cos(point, epsilone).point_result;
+
+  AnswerHandler result;
+  result.point = point;
+  result.epsilone = epsilone;
 
   // exeptions
   if (std::fabs(cos_val) < epsilone) {
-    if (sin_val > 0)
-      return 1.0 / 0.0; // +inf
-    if (sin_val < 0)
-      return -1.0 / 0.0; // -inf
-    return 0.0;          // 0/0
+    if (sin_val > 0) {
+      result.point_result = 1.0 / 0.0;
+      return result; // +inf
+    }
+    if (sin_val < 0) {
+      result.point_result = -1.0 / 0.0;
+      return result; // -inf
+    }
+    result.point_result = 0.0;
+    return result; // 0/0
   }
 
-  return sin_val / cos_val;
+  result.point_result = sin_val / cos_val;
+  return result;
 }
 
-double my_cotan(double point, double epsilone) {
-  double sin_val = my_sin(point, epsilone);
-  double cos_val = my_cos(point, epsilone);
+AnswerHandler my_cotan(double point, double epsilone) {
+  double sin_val = my_sin(point, epsilone).point_result;
+  double cos_val = my_cos(point, epsilone).point_result;
+
+  AnswerHandler result;
+  result.point = point;
+  result.epsilone = epsilone;
 
   // exeptions
   if (std::fabs(sin_val) < epsilone) {
-    if (cos_val > 0)
-      return 1.0 / 0.0; // +inf
-    if (cos_val < 0)
-      return -1.0 / 0.0; // -inf
-    return 0.0;          // 0/0
+    if (cos_val > 0) {
+      result.point_result = 1.0 / 0.0;
+      return result; // +inf
+    }
+    if (cos_val < 0) {
+      result.point_result = -1.0 / 0.0;
+      return result; // -inf
+    }
+    result.point_result = 0.0;
+    return result; // 0/0
   }
-
-  return cos_val / sin_val;
+  result.point_result = cos_val / sin_val;
+  return result;
 }

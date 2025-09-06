@@ -11,8 +11,8 @@ int main() {
     handler.point = pi * i / 2;
     std::cout << "Point: " << i << "\n";
     for (int j = 0; j < 4; j++) {
-      handler.point_result = handler.my_trig(j);
-      std::cout << "        " << j << ": " << handler.point_result << "\n";
+      handler = handler.my_trig(j);
+      std::cout << "         " << j << ": " << handler.point_result << "\n";
     }
   }
   std::cout << "\n";
