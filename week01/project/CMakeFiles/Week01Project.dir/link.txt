@@ -1,0 +1,1 @@
+/usr/bin/g++ CMakeFiles/Week01Project.dir/main.cpp.o -o bin/Week01Project 

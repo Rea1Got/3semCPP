@@ -1,0 +1,1 @@
+/usr/bin/g++ CMakeFiles/Week01Project.dir/main.cpp.o CMakeFiles/Week01Project.dir/src/my_math.cpp.o CMakeFiles/Week01Project.dir/src/ans_handler.cpp.o -o /home/ril1/Study/3semCPP/week01/project/bin/Week01Project 
